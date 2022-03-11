@@ -1,0 +1,247 @@
+/usr/local/mysql/bin/mysqld, Version: 5.7.35-log (MySQL Community Server (GPL)). started with:
+Tcp port: 3306  Unix socket: /tmp/mysql/mysqld3306.sock
+Time                 Id Command    Argument
+# Time: 2022-02-23T00:10:38.455311+08:00
+# User@Host: zcy_bi_read[zcy_bi_read] @  [192.168.98.202]  Id: 1883175
+# Query_time: 0.048566  Lock_time: 0.038171 Rows_sent: 10  Rows_examined: 6179
+use db_item;
+SET timestamp=1645546238;
+SELECT a.table_comment,b.column_name,b.data_type,b.column_comment,b.column_key,b.extra,b.numeric_precision,b.numeric_scale FROM information_schema.TABLES a join information_schema.COLUMNS b on a.TABLE_NAME=b.table_name and a.TABLE_SCHEMA=b.TABLE_SCHEMA WHERE LOWER(a.TABLE_SCHEMA)='db_item' and LOWER(a.table_name) = 'tag_resource_relation';
+# Time: 2022-02-23T00:13:27.492868+08:00
+# User@Host: zcy_bi_read[zcy_bi_read] @  [192.168.98.202]  Id: 1883532
+# Query_time: 0.045751  Lock_time: 0.035698 Rows_sent: 11  Rows_examined: 6179
+SET timestamp=1645546407;
+SELECT a.table_comment,b.column_name,b.data_type,b.column_comment,b.column_key,b.extra,b.numeric_precision,b.numeric_scale FROM information_schema.TABLES a join information_schema.COLUMNS b on a.TABLE_NAME=b.table_name and a.TABLE_SCHEMA=b.TABLE_SCHEMA WHERE LOWER(a.TABLE_SCHEMA)='db_item' and LOWER(a.table_name) = 'zcy_tags';
+# Time: 2022-02-23T00:18:42.419980+08:00
+# User@Host: zcy_bi_read[zcy_bi_read] @  [192.168.98.145]  Id: 1884134
+# Query_time: 0.045943  Lock_time: 0.035109 Rows_sent: 15  Rows_examined: 6179
+SET timestamp=1645546722;
+SELECT a.table_comment,b.column_name,b.data_type,b.column_comment,b.column_key,b.extra,b.numeric_precision,b.numeric_scale FROM information_schema.TABLES a join information_schema.COLUMNS b on a.TABLE_NAME=b.table_name and a.TABLE_SCHEMA=b.TABLE_SCHEMA WHERE LOWER(a.TABLE_SCHEMA)='db_item' and LOWER(a.table_name) = 'zcy_item_main_ext';
+# Time: 2022-02-23T00:19:10.797436+08:00
+# User@Host: zcy_bi_read[zcy_bi_read] @  [192.168.98.73]  Id: 1884200
+# Query_time: 1.294310  Lock_time: 0.000125 Rows_sent: 104284  Rows_examined: 104284
+SET timestamp=1645546750;
+SELECT `id`, `item_id`, `protocol_category_id`, `item_price`, `item_price_unit`, `sale_num_control`, `oversale_num`, `bar_code`, `creator_id`, `modifier_id`, `created_at`, `updated_at`, `item_price_desc`, `r_add_time`, `r_modified_time` FROM `zcy_item_main_ext` AS `zcy_item_main_ext` WHERE ( 1=1 ) AND ( 1=1 );
+# Time: 2022-02-23T00:19:12.789633+08:00
+# User@Host: zcy_bi_read[zcy_bi_read] @  [192.168.98.73]  Id: 1884213
+# Query_time: 0.946105  Lock_time: 0.000148 Rows_sent: 80596  Rows_examined: 80596
+SET timestamp=1645546752;
+SELECT `id`, `item_id`, `ext_json`, `version`, `status`, `creator_id`, `created_at`, `update_id`, `updated_at`, `r_add_time`, `r_modified_time` FROM `zcy_item_ext_info` AS `zcy_item_ext_info` WHERE ( 1=1 ) AND ( 1=1 );
+/usr/local/mysql/bin/mysqld, Version: 5.7.35-log (MySQL Community Server (GPL)). started with:
+Tcp port: 3306  Unix socket: /tmp/mysql/mysqld3306.sock
+Time                 Id Command    Argument
+# Time: 2022-02-23T02:00:01.842679+08:00
+# User@Host: root[root] @ localhost []  Id: 1895435
+# Query_time: 0.012979  Lock_time: 0.000000 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1645552801;
+# administrator command: Refresh;
+# Time: 2022-02-23T02:00:01.882044+08:00
+# User@Host: root[root] @ localhost []  Id: 1895435
+# Query_time: 0.018945  Lock_time: 0.000024 Rows_sent: 659  Rows_examined: 659
+use mysql;
+SET timestamp=1645552801;
+SELECT /*!40001 SQL_NO_CACHE */ * FROM `help_topic`;
+# Time: 2022-02-23T02:00:02.052894+08:00
+# User@Host: root[root] @ localhost []  Id: 1895435
+# Query_time: 0.127586  Lock_time: 0.000023 Rows_sent: 125397  Rows_examined: 125397
+SET timestamp=1645552802;
+SELECT /*!40001 SQL_NO_CACHE */ * FROM `time_zone_transition`;
+# Time: 2022-02-23T02:00:02.230413+08:00
+# User@Host: root[root] @ localhost []  Id: 1895435
+# Query_time: 0.106684  Lock_time: 0.000029 Rows_sent: 1232  Rows_examined: 1232
+use db_item;
+SET timestamp=1645552802;
+SELECT /*!40001 SQL_NO_CACHE */ * FROM `parana_item_snapshots`;
+# Time: 2022-02-23T02:00:02.305197+08:00
+# User@Host: root[root] @ localhost []  Id: 1895435
+# Query_time: 0.058274  Lock_time: 0.000027 Rows_sent: 8342  Rows_examined: 8342
+SET timestamp=1645552802;
+SELECT /*!40001 SQL_NO_CACHE */ * FROM `parana_user_files`;
+# Time: 2022-02-23T02:00:02.388069+08:00
+# User@Host: root[root] @ localhost []  Id: 1895435
+# Query_time: 0.017162  Lock_time: 0.000028 Rows_sent: 1807  Rows_examined: 1807
+SET timestamp=1645552802;
+SELECT /*!40001 SQL_NO_CACHE */ * FROM `zcy_batch_job`;
+# Time: 2022-02-23T02:00:02.478019+08:00
+# User@Host: root[root] @ localhost []  Id: 1895435
+# Query_time: 0.078780  Lock_time: 0.000039 Rows_sent: 32066  Rows_examined: 32066
+SET timestamp=1645552802;
+SELECT /*!40001 SQL_NO_CACHE */ * FROM `zcy_batch_job_log`;
+# Time: 2022-02-23T02:00:02.845139+08:00
+# User@Host: root[root] @ localhost []  Id: 1895435
+# Query_time: 0.319946  Lock_time: 0.000025 Rows_sent: 104215  Rows_examined: 104215
+SET timestamp=1645552802;
+SELECT /*!40001 SQL_NO_CACHE */ * FROM `zcy_item_ag_category_attribute`;
+# Time: 2022-02-23T02:00:03.279321+08:00
+# User@Host: root[root] @ localhost []  Id: 1895435
+# Query_time: 0.398637  Lock_time: 0.000027 Rows_sent: 80596  Rows_examined: 80596
+SET timestamp=1645552803;
+SELECT /*!40001 SQL_NO_CACHE */ * FROM `zcy_item_ext_info`;
+# Time: 2022-02-23T02:00:03.690946+08:00
+# User@Host: root[root] @ localhost []  Id: 1895435
+# Query_time: 0.396788  Lock_time: 0.000027 Rows_sent: 104284  Rows_examined: 104284
+SET timestamp=1645552803;
+SELECT /*!40001 SQL_NO_CACHE */ * FROM `zcy_item_main_ext`;
+# Time: 2022-02-23T02:00:04.332560+08:00
+# User@Host: root[root] @ localhost []  Id: 1895435
+# Query_time: 0.621724  Lock_time: 0.000028 Rows_sent: 195152  Rows_examined: 195152
+SET timestamp=1645552804;
+SELECT /*!40001 SQL_NO_CACHE */ * FROM `zcy_item_price`;
+# Time: 2022-02-23T02:00:05.055838+08:00
+# User@Host: root[root] @ localhost []  Id: 1895435
+# Query_time: 0.636141  Lock_time: 0.000025 Rows_sent: 167476  Rows_examined: 167476
+SET timestamp=1645552805;
+SELECT /*!40001 SQL_NO_CACHE */ * FROM `zcy_shop_front_category`;
+# Time: 2022-02-23T20:21:44.488349+08:00
+# User@Host: db_item_user[db_item_user] @  [192.168.98.237]  Id: 1793146
+# Query_time: 0.016805  Lock_time: 0.000184 Rows_sent: 1  Rows_examined: 0
+SET timestamp=1645618904;
+/* Traceid: 198b3318e546e38174fbc58b467cc5ca */ SELECT COUNT(1)
+        FROM
+        parana_user_folders
+
+
+        WHERE 1 = 1
+
+          AND pid = 0
+          AND create_by = 3002211883;
+# Time: 2022-02-23T20:21:44.554066+08:00
+# User@Host: db_item_user[db_item_user] @  [192.168.98.237]  Id: 1793146
+# Query_time: 0.057735  Lock_time: 0.000104 Rows_sent: 1  Rows_examined: 0
+SET timestamp=1645618904;
+/* Traceid: 198b3318e546e38174fbc58b467cc5ca */ SELECT COUNT(1)
+        FROM
+        parana_user_files
+
+
+        WHERE 1 = 1
+
+
+
+          AND folder_id = 0
+          AND create_by = 3002211883;
+# Time: 2022-02-23T20:21:51.188352+08:00
+# User@Host: db_item_user[db_item_user] @  [192.168.98.56]  Id: 1792907
+# Query_time: 0.013749  Lock_time: 0.000094 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1645618911;
+/* Traceid: e066d02953f74f782b2ec878609f8899 */ SELECT
+        id,
+        create_by, file_type, `group`, folder_id, name, path, size, extra, created_at, updated_at
+
+
+        FROM
+        parana_user_files
+
+         WHERE  folder_id=0
+
+            and name='280_210-3.jpeg'
+        order by created_at desc;
+# Time: 2022-02-23T21:31:54.829996+08:00
+# User@Host: db_item_user[db_item_user] @  [192.168.98.56]  Id: 1792902
+# Query_time: 0.018314  Lock_time: 0.000064 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1645623114;
+/* Traceid: 9772baf6097549b694df0b0551366f71_1||msg0A0A88DD000103A4E34375EAB0200000 */ SELECT
+
+        id, created_at, updated_at, version, remark, item_id, sku_id, history_sale_price, market_price, gpi_price, crawler_price,
+        min_deal_price, avg_deal_price, avg_sale_price, min_sale_price, last_deal_time
+
+        FROM
+
+        zcy_item_price
+
+        WHERE item_id = 784058259574784 and sku_id = 100369027;
+# Time: 2022-02-23T21:31:54.881498+08:00
+# User@Host: db_item_user[db_item_user] @  [192.168.98.56]  Id: 1792902
+# Query_time: 0.050086  Lock_time: 0.000056 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1645623114;
+/* Traceid: 9772baf6097549b694df0b0551366f71_1||msg0A0A88DD000103A4E34375EAB0200000 */ insert into
+
+        zcy_item_price
+
+        (
+         created_at,
+         updated_at,
+         version,
+         remark,
+         item_id,
+         sku_id,
+         history_sale_price,
+         market_price,
+         gpi_price,
+         crawler_price,
+         min_deal_price,
+         avg_deal_price,
+         avg_sale_price,
+         min_sale_price,
+         last_deal_time
+        )
+        values(
+         null,
+         null,
+         0,
+         null,
+         784058259574784,
+         100369027,
+         null,
+         259900,
+         null,
+         null,
+         null,
+         null,
+         null,
+         null,
+         null
+        );
+# Time: 2022-02-23T21:36:41.606740+08:00
+# User@Host: db_item_user[db_item_user] @  [192.168.98.237]  Id: 1793145
+# Query_time: 0.025279  Lock_time: 0.000058 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1645623401;
+/* Traceid: 5d687e140e45c1d1c29231d2e706d1db||msg0A0A85A7000103A4E34375EF10190006 */ SELECT
+
+    id,
+        biz_id, batch_id, child_job_id, error_msg, `status`, created_at
+
+
+    FROM
+
+        zcy_batch_job_log
+
+    WHERE 1=1
+
+      and batch_id = 18729
+
+
+      AND child_job_id IN
+       (  '100369027' );
+# Time: 2022-02-23T21:49:45.026340+08:00
+# User@Host: db_item_user[db_item_user] @  [192.168.98.56]  Id: 1792903
+# Query_time: 0.012915  Lock_time: 0.000122 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1645624185;
+/* Traceid: ba69879fbd8bd74a4d174fbd2c0ec505 */ SELECT
+
+                id,`name`, `type`, business_tag, icon, icon_small, description_url, categories_json, service_category_id, status
+
+                FROM
+
+                zcy_item_service_protocol
+
+                WHERE status != -3
+                 AND status = 3
+                 AND type = 1
+                 AND business_tag = '网超';
+# Time: 2022-02-23T21:59:28.952568+08:00
+# User@Host: db_item_user[db_item_user] @  [192.168.98.56]  Id: 1792908
+# Query_time: 0.012294  Lock_time: 0.000074 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1645624768;
+/* Traceid: ad95f8f0f268a3bbc524b4757296cbf1 */ SELECT
+        id,
+        create_by, file_type, `group`, folder_id, name, path, size, extra, created_at, updated_at
+
+
+        FROM
+        parana_user_files
+
+         WHERE  folder_id=0
+
+            and name='1c14c7c79d566ed1(1).jpg'
+        order by created_at desc;

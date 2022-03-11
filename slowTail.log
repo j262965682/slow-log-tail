@@ -1,0 +1,49 @@
+[slowTail]2022/02/28 16:48:43 main.go:11: Start parse config file and Connect to the specified database.
+[slowTail]2022/02/28 16:48:43 main.go:14: Start parse the slow log file.
+[slowTail]2022/02/28 17:05:28 main.go:11: Start parse config file and Connect to the specified database.
+[slowTail]2022/02/28 17:05:28 main.go:14: Start parse the slow log file.
+[slowTail]2022/02/28 17:07:59 main.go:11: Start parse config file and Connect to the specified database.
+[slowTail]2022/02/28 17:08:00 main.go:14: Start parse the slow log file.
+[slowTail]2022/02/28 17:22:37 main.go:11: Start parse config file and Connect to the specified database.
+[slowTail]2022/02/28 17:22:37 main.go:14: Start parse the slow log file.
+[slowTail]2022/02/28 17:41:56 main.go:11: Start parse config file and Connect to the specified database.
+[slowTail]2022/02/28 17:41:56 main.go:14: Start parse the slow log file.
+[slowTail]2022/03/01 10:14:39 main.go:11: Start parse config file and Connect to the specified database.
+[slowTail]2022/03/01 10:14:39 main.go:14: Start parse the slow log file.
+[slowTail]2022/03/01 10:16:22 main.go:11: Start parse config file and Connect to the specified database.
+[slowTail]2022/03/01 10:16:22 main.go:14: Start parse the slow log file.
+[slowTail]2022/03/01 10:17:51 main.go:11: Start parse config file and Connect to the specified database.
+[slowTail]2022/03/01 10:17:52 main.go:14: Start parse the slow log file.
+[slowTail]2022/03/01 10:20:37 main.go:11: Start parse config file and Connect to the specified database.
+[slowTail]2022/03/01 10:20:37 main.go:14: Start parse the slow log file.
+[slowTail]2022/03/01 10:20:59 main.go:11: Start parse config file and Connect to the specified database.
+[slowTail]2022/03/01 10:20:59 main.go:14: Start parse the slow log file.
+[slowTail]2022/03/01 10:22:48 main.go:11: Start parse config file and Connect to the specified database.
+[slowTail]2022/03/01 10:22:48 main.go:14: Start parse the slow log file.
+[slowTail]2022/03/01 10:23:35 main.go:11: Start parse config file and Connect to the specified database.
+[slowTail]2022/03/01 10:23:35 main.go:14: Start parse the slow log file.
+[slowTail]2022/03/01 10:25:25 main.go:11: Start parse config file and Connect to the specified database.
+[slowTail]2022/03/01 10:25:25 main.go:14: Start parse the slow log file.
+[slowTail]2022/03/01 10:25:33 main.go:11: Start parse config file and Connect to the specified database.
+[slowTail]2022/03/01 10:25:33 main.go:14: Start parse the slow log file.
+[slowTail]2022/03/01 10:26:06 main.go:12: Start parse config file and Connect to the specified database.
+[slowTail]2022/03/01 10:26:06 main.go:15: Start parse the slow log file.
+[slowTail]2022/03/01 10:31:37 main.go:12: Start parse config file and Connect to the specified database.
+[slowTail]2022/03/01 10:31:37 main.go:15: Start parse the slow log file.
+[slowTail]2022/03/03 10:19:59 main.go:11: Start parse config file and Connect to the specified database.
+[slowTail]2022/03/03 10:19:59 main.go:14: Start parse the slow log file.
+[slowTail]2022/03/03 10:27:47 main.go:11: Start parse config file and Connect to the specified database.
+[slowTail]2022/03/03 10:27:47 main.go:14: Start parse the slow log file.
+[slowTail]2022/03/03 10:27:47 parse_file.go:20: ERROR -> open file failed.: The system cannot find the file specified.
+[slowTail]2022/03/03 10:28:08 main.go:11: Start parse config file and Connect to the specified database.
+[slowTail]2022/03/03 10:28:08 main.go:14: Start parse the slow log file.
+[slowTail]2022/03/03 10:51:57 main.go:11: Start parse config file and Connect to the specified database.
+[slowTail]2022/03/03 10:51:57 main.go:14: Start parse the slow log file.
+[slowTail]2022/03/03 10:55:55 main.go:11: Start parse config file and Connect to the specified database.
+[slowTail]2022/03/03 10:55:56 main.go:14: Start parse the slow log file.
+[slowTail]2022/03/03 10:57:48 main.go:11: Start parse config file and Connect to the specified database.
+[slowTail]2022/03/03 10:57:48 main.go:14: Start parse the slow log file.
+[slowTail]2022/03/03 11:00:34 main.go:11: Start parse config file and Connect to the specified database.
+[slowTail]2022/03/03 11:00:34 main.go:14: Start parse the slow log file.
+[slowTail]2022/03/03 11:01:23 main.go:11: Start parse config file and Connect to the specified database.
+[slowTail]2022/03/03 11:01:23 main.go:14: Start parse the slow log file.
