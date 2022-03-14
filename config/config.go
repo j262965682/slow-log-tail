@@ -26,9 +26,10 @@ type Mysql struct {
 }
 
 type SlowLog struct {
-	Path       string   `yaml:"path"`
-	Instance   string   `yaml:"instance"`
-	IgnoreUser []string `yaml:"ignoreuser"`
+	Path          string   `yaml:"path"`
+	Instance      string   `yaml:"instance"`
+	IgnoreUser    []string `yaml:"ignoreuser"`
+	LongQueryTime float64  `yaml:"longquerytime"`
 }
 
 //初始化全局配置

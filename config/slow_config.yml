@@ -1,12 +1,13 @@
 mysql:
   host: '10.110.2.86'
   port: 3306
-  user: 'mha'
-  password: 'xxxxxx'
+  user: 'slow'
+  password: 'slow'
   dbname: 'onecool'
   tablename: 't_slow_log'
   other: 'charset=utf8mb4&parseTime=True&loc=Local'
 slowLog:
-  path: 'D:\golangPro\slow-log-tail\slowlog\slow-log.log'
+  path: 'D:\GitHubPro\22222\slow-log-tail\slowlog\slow-log.log'
   instance: '测试'
   ignoreuser: ['root','zcy_bi_read']
+  longquerytime: 0.4

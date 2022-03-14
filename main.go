@@ -13,5 +13,5 @@ func main() {
 	datasource.InitDB()
 	log.Println("Start parse the slow log file.")
 	//fmt.Println(config.GetConfig().SlowLog.IgnoreUser)
-	parsefile.ParseTail(config.GetConfig().SlowLog.Path, datasource.GetDB(), config.GetConfig().SlowLog.Instance, config.GetConfig().SlowLog.IgnoreUser)
+	parsefile.ParseTail(config.GetConfig().SlowLog.Path, datasource.GetDB(), config.GetConfig().SlowLog.Instance, config.GetConfig().SlowLog.IgnoreUser, config.GetConfig().SlowLog.LongQueryTime)
 }

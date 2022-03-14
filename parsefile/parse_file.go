@@ -12,7 +12,7 @@ import (
 )
 
 // ParseTail fileName "/var/log/nginx.log"  "D:\golangPro\slow-log-tail\slowlog\slow-log.log"
-func ParseTail(fileName string, db *gorm.DB, instance string, ignoreUser []string) {
+func ParseTail(fileName string, db *gorm.DB, instance string, ignoreUser []string, loneQueryTime float64) {
 	// tail.TailFile()函数开启goroutine去读取文件，通过channel格式的t.lines传递内容。
 	t, err := tail.TailFile(fileName, tail.Config{Follow: true, ReOpen: true})
 	if err != nil {
@@ -94,10 +94,17 @@ func ParseTail(fileName string, db *gorm.DB, instance string, ignoreUser []strin
 						signSQL = false
 						//fmt.Println("sql:", sql, ".")
 						//fmt.Println(ignoreUser)
-						if !In(slowLog.User, ignoreUser) {
-							//send slow log to database
-							if err = slowLog.SendToDatabase(db); err != nil {
-								fmt.Println(err)
+						// 判断慢查询阈值
+						//fmt.Println("QueryTime is", slowLog.QueryTime)
+						//fmt.Println("loneQueryTime is", loneQueryTime)
+						if slowLog.QueryTime >= loneQueryTime {
+							//fmt.Println("大于阈值")
+							// 判断用户
+							if !In(slowLog.User, ignoreUser) {
+								//send slow log to database
+								if err = slowLog.SendToDatabase(db); err != nil {
+									fmt.Println(err)
+								}
 							}
 						}
 					}
