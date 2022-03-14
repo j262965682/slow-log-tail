@@ -9,5 +9,5 @@ mysql:
 slowLog:
   path: 'D:\GitHubPro\22222\slow-log-tail\slowlog\slow-log.log'
   instance: '测试'
-  ignoreuser: ['root','zcy_bi_read']
+  ignoreuser: ['root']
   longquerytime: 0.4
