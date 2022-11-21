@@ -12,10 +12,13 @@ import (
 	"time"
 )
 
-var orm *gorm.DB = InitDB()
+var orm *gorm.DB
 
 func GetDB() *gorm.DB {
-	return orm
+	if orm != nil {
+		return orm
+	}
+	return InitDB()
 }
 
 func InitDB() *gorm.DB {

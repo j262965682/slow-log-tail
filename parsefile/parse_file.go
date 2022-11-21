@@ -1,20 +1,20 @@
 package parsefile
 
 import (
-	"fmt"
 	"github.com/hpcloud/tail"
 	"github.com/percona/go-mysql/query"
 	"github.com/pkg/errors"
-	"gorm.io/gorm"
 	"log"
 	"regexp"
+	"slow-log-tail/config"
 	"slow-log-tail/model"
 )
 
 // ParseTail fileName "/var/log/nginx.log"  "D:\golangPro\slow-log-tail\slowlog\slow-log.log"
-func ParseTail(fileName string, db *gorm.DB, instance string, ignoreUser []string, loneQueryTime float64) {
+//func ParseTail(fileName string, db *gorm.DB, instance string, ignoreUser []string, loneQueryTime float64) {
+func ParseTail(config *config.Config, sender model.Sender) {
 	// tail.TailFile()函数开启goroutine去读取文件，通过channel格式的t.lines传递内容。
-	t, err := tail.TailFile(fileName, tail.Config{Follow: true, ReOpen: true})
+	t, err := tail.TailFile(config.SlowLog.Path, tail.Config{Follow: true, ReOpen: true})
 	if err != nil {
 		err = errors.Wrap(err, "ERROR -> open file failed.") //如果文件不存在，会阻塞并打印Waiting for my.log to appear...，直到文件被创建
 		log.Println(err)
@@ -88,7 +88,7 @@ func ParseTail(fileName string, db *gorm.DB, instance string, ignoreUser []strin
 					if b == ';' {
 						slowLog.Db = dbValue
 						slowLog.Sql = sql
-						slowLog.Instance = instance
+						slowLog.Instance = config.SlowLog.Instance
 						slowLog.Hash = Md532(query.Fingerprint(sql))
 						signGroup = false
 						signSQL = false
@@ -97,13 +97,16 @@ func ParseTail(fileName string, db *gorm.DB, instance string, ignoreUser []strin
 						// 判断慢查询阈值
 						//fmt.Println("QueryTime is", slowLog.QueryTime)
 						//fmt.Println("loneQueryTime is", loneQueryTime)
-						if slowLog.QueryTime >= loneQueryTime {
+						if slowLog.QueryTime >= config.SlowLog.LongQueryTime {
 							//fmt.Println("大于阈值")
 							// 判断用户
-							if !In(slowLog.User, ignoreUser) {
+							if !In(slowLog.User, config.SlowLog.IgnoreUser) {
 								//send slow log to database
-								if err = slowLog.SendToDatabase(db); err != nil {
-									fmt.Println(err)
+								//if err = slowLog.SendToDatabase(db); err != nil {
+								//	fmt.Println(err)
+								//}
+								if err = sender.SendTo(&slowLog); err != nil {
+									log.Println(err)
 								}
 							}
 						}

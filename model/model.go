@@ -1,7 +1,9 @@
 package model
 
 import (
+	"encoding/json"
 	"github.com/pkg/errors"
+	"github.com/valyala/fasthttp"
 	"gorm.io/gorm"
 	"time"
 )
@@ -54,10 +56,54 @@ type SlowLogRepository struct {
 	db *gorm.DB
 }
 
-func (s *SlowLog) SendToDatabase(db *gorm.DB) (err error) {
-	if err = db.Create(s).Error; err != nil {
+//func (s *SlowLog) SendToDatabase(db *gorm.DB) (err error) {
+//	if err = db.Create(s).Error; err != nil {
+//		errors.Wrap(err, "ERROR -> insert DB failed.")
+//		return err
+//	}
+//	return nil
+//}
+
+type Mysql struct {
+	Db *gorm.DB
+}
+
+func (m *Mysql) SendTo(s *SlowLog) error {
+	var err error
+	if err = m.Db.Create(s).Error; err != nil {
 		errors.Wrap(err, "ERROR -> insert DB failed.")
 		return err
 	}
 	return nil
+}
+
+type Post struct {
+	Host string `yaml:"host"`
+	Url  string `yaml:"url"`
+}
+
+func (m *Post) SendTo(s *SlowLog) error {
+	req := fasthttp.AcquireRequest()   //获取Request连接池中的连接
+	defer fasthttp.ReleaseRequest(req) // 用完需要释放资源
+	// 默认是application/x-www-form-urlencoded
+	req.Header.SetContentType("application/json")
+	req.Header.SetMethod("POST")
+	req.SetRequestURI(m.Url)
+	req.SetHost(m.Host)
+	byteJson, _ := json.Marshal(s)
+	req.SetBody(byteJson)
+	resp := fasthttp.AcquireResponse()             //获取Response连接池中的连接
+	defer fasthttp.ReleaseResponse(resp)           // 用完需要释放资源
+	if err := fasthttp.Do(req, resp); err != nil { //发送请求
+		errors.Wrap(err, "HTTP send error")
+		return err
+	}
+	return nil
+	//b := resp.Body()
+	//// resp.Body()
+	//log.Info(b)
+}
+
+type Sender interface {
+	SendTo(s *SlowLog) error
 }
