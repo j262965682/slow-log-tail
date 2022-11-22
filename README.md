@@ -21,6 +21,7 @@ post:
   url:  '172.0.0.1'
 slowLog:
   path: 'D:\GitHubPro\22222\slow-log-tail\slowlog\slow-log.log'
+  env: '测试区域'
   instance: '测试'
   ignoreuser: ['root']
   longquerytime: 0.4
