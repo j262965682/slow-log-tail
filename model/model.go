@@ -21,6 +21,7 @@ import (
 
 type SlowLog struct {
 	ID           int64   `gorm:"column:id;primaryKey;autoIncrement:true"`
+	Env          string  `gorm:"column:env;type:varchar(10)"`
 	Instance     string  `gorm:"column:instance;type:varchar(30);index:idx_db_instance,priority:2"`
 	Db           string  `gorm:"column:db;type:varchar(30);index:idx_db_instance,priority:1"`
 	Time         string  `gorm:"column:time;type:varchar(35);index:idx_time"`
@@ -89,7 +90,10 @@ func (m *Post) SendTo(s *SlowLog) error {
 	req.Header.SetContentType("application/json")
 	req.Header.SetMethod("POST")
 	req.SetRequestURI(m.Url)
-	req.SetHost(m.Host)
+	if m.Host != "" {
+		req.SetHost(m.Host)
+	}
+
 	byteJson, _ := json.Marshal(s)
 	req.SetBody(byteJson)
 	resp := fasthttp.AcquireResponse()             //获取Response连接池中的连接

@@ -29,6 +29,7 @@ type Mysql struct {
 
 type SlowLog struct {
 	Path          string   `yaml:"path"`
+	Env           string   `yaml:"env"`
 	Instance      string   `yaml:"instance"`
 	IgnoreUser    []string `yaml:"ignoreuser"`
 	LongQueryTime float64  `yaml:"longquerytime"`
@@ -50,6 +51,7 @@ func init() {
 	if err := viper.ReadInConfig(); err != nil {
 		panic(errors.Wrap(err, "read config file wrong."))
 	}
+
 	err := viper.Unmarshal(&_config) // 将配置信息绑定到结构体上
 	if err != nil {
 		panic(errors.Wrap(err, "Unmarshalling config file wrong."))

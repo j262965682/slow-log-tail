@@ -88,6 +88,7 @@ func ParseTail(config *config.Config, sender model.Sender) {
 					if b == ';' {
 						slowLog.Db = dbValue
 						slowLog.Sql = sql
+						slowLog.Env = config.SlowLog.Env
 						slowLog.Instance = config.SlowLog.Instance
 						slowLog.Hash = Md532(query.Fingerprint(sql))
 						signGroup = false
