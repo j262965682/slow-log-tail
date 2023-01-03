@@ -1,6 +1,7 @@
 package parsefile
 
 import (
+	"fmt"
 	"regexp"
 	"testing"
 )
@@ -28,4 +29,20 @@ func TestTimestampRule(t *testing.T) {
 
 func TestDbRule(t *testing.T) {
 	dbRule("use db_item;")
+}
+
+func TestMaoHaoChange(t *testing.T) {
+	sql := `/* Traceid: ba69879fbd8bd74a4d174fbd2c0ec505 */ SELECT
+
+                id,name, type, business_tag, icon, icon_small, description_url, categories_json, service_category_id, status
+
+                FROM
+
+                zcy_item_service_protocol
+
+                WHERE status != -3
+                 AND status = 3
+                 AND type = 1
+                 AND business_tag = '网超';`
+	fmt.Println(MaoHaoChange(sql))
 }

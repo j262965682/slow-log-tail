@@ -1,6 +1,7 @@
 package parsefile
 
 import (
+	"fmt"
 	"github.com/hpcloud/tail"
 	"github.com/percona/go-mysql/query"
 	"github.com/pkg/errors"
@@ -86,6 +87,7 @@ func ParseTail(config *config.Config, sender model.Sender) {
 					sql = sql + " " + lineValue
 					b := lineValue[len(lineValue)-1]
 					if b == ';' {
+						sql = MaoHaoChange(sql)
 						slowLog.Db = dbValue
 						slowLog.Sql = sql
 						slowLog.Env = config.SlowLog.Env
@@ -93,7 +95,7 @@ func ParseTail(config *config.Config, sender model.Sender) {
 						slowLog.Hash = Md532(query.Fingerprint(sql))
 						signGroup = false
 						signSQL = false
-						//fmt.Println("sql:", sql, ".")
+						fmt.Println("sql:", sql, ".")
 						//fmt.Println(ignoreUser)
 						// 判断慢查询阈值
 						//fmt.Println("QueryTime is", slowLog.QueryTime)

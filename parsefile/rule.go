@@ -120,3 +120,16 @@ func In(target string, strArray []string) bool {
 	}
 	return false
 }
+
+func MaoHaoChange(target string) string {
+	var maoHao1 = `"`
+	var maoHao1AfterChange = `\"`
+	var maoHao2 = `'`
+	var maoHao2AfterChange = `\'`
+	var maoHao3 = '`'
+	var maoHao3AfterChange = "\\`"
+	target = strings.Replace(target, maoHao1, maoHao1AfterChange, -1)
+	target = strings.Replace(target, maoHao2, maoHao2AfterChange, -1)
+	target = strings.Replace(target, string(maoHao3), maoHao3AfterChange, -1)
+	return target
+}
