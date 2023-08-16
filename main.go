@@ -28,4 +28,20 @@ func main() {
 	log.Println("Start parse the slow log file.")
 	//fmt.Println(config.GetConfig().SlowLog.IgnoreUser)
 	parsefile.ParseTail(config, sender)
+
+	//ctxMain, _ := context.WithCancel(context.Background())
+	//
+	//ctx, cancel := context.WithCancel(context.Background())
+	//
+	//keyChan := make(chan string, 10)
+	//
+	//go parsefile.WatchLogFile(config, sender, ctx, keyChan)
+	//
+	//defer func() {
+	//	if err := recover(); err != nil {
+	//		fmt.Println("main goroutine panic ", err) // 这里的err其实就是panic传入的内容
+	//	}
+	//	cancel()
+	//}()
+	//<-ctxMain.Done()
 }

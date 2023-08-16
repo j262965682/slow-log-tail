@@ -34,10 +34,10 @@ type SlowLog struct {
 	RowsSend     int     `gorm:"column:rows_send;type:int"`
 	RowsExamined int     `gorm:"column:rows_examined;type:int"`
 	Sql          string  `gorm:"column:sql;type:text"`
-	//Fingerprint  string  `gorm:"column:finger_print;type:text;index:idx_finger_print"`
-	Hash      string `gorm:"column:hash;type:varchar(32);index:idx_hash"`
-	CreatedAt time.Time
-	UpdatedAt time.Time
+	Fingerprint  string  `gorm:"column:finger_print;type:text;index:idx_finger_print"`
+	Hash         string  `gorm:"column:hash;type:varchar(32);index:idx_hash"`
+	CreatedAt    time.Time
+	UpdatedAt    time.Time
 }
 
 type UserAndHost struct {

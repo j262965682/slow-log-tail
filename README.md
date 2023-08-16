@@ -38,5 +38,5 @@ go build -o "slow-log-tail"
 ### 执行
 ```shell
 chmod +x slow-log-tail
-nohup ./slow-log-tail >/dev/null 2>slow-log-nohup.log & 
+nohup ./slow-log-tail > slow-log-nohup.log 2>&1 &
 ```

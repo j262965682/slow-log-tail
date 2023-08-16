@@ -46,3 +46,7 @@ func TestMaoHaoChange(t *testing.T) {
                  AND business_tag = '网超';`
 	fmt.Println(MaoHaoChange(sql))
 }
+
+func TestRound(t *testing.T) {
+	fmt.Println(Round(9.123932, 3))
+}

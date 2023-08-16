@@ -4,6 +4,7 @@ import (
 	"crypto/md5"
 	"fmt"
 	"github.com/pkg/errors"
+	"math"
 	"regexp"
 	"slow-log-tail/model"
 	"strconv"
@@ -11,6 +12,13 @@ import (
 )
 
 func TypeOfLine(line string, sqlControl bool) (lineType string) {
+	if len(line) > 3 {
+		prefixStr := line[:3]
+		if prefixStr == "# T" {
+			lineType = "TIME"
+			return lineType
+		}
+	}
 	if sqlControl {
 		return "SQL"
 	} else {
@@ -132,4 +140,9 @@ func MaoHaoChange(target string) string {
 	target = strings.Replace(target, maoHao2, maoHao2AfterChange, -1)
 	target = strings.Replace(target, string(maoHao3), maoHao3AfterChange, -1)
 	return target
+}
+
+func Round(f float64, n int) float64 {
+	pow10N := math.Pow10(n)
+	return math.Trunc((f)*pow10N) / pow10N
 }

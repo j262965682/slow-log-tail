@@ -1,3 +1,5 @@
+# mysql or post
+outPutType: 'post'
 mysql:
   host: '10.110.2.86'
   port: 3306
@@ -6,8 +8,12 @@ mysql:
   dbname: 'onecool'
   tablename: 't_slow_log'
   other: 'charset=utf8mb4&parseTime=True&loc=Local'
+post:
+  host: ''
+  url: 'http://1777249568276608.eventbridge.cn-hangzhou.aliyuncs.com/webhook/putEvents?token=251fb1cc61c848bca94b11b04a8839fed00dd3f5d6774abca7c3c76877ee7e25dd4570571c1247038ed011bcb4730e8a8308e703cb8640a6ac2bf62e0a38016d'
 slowLog:
   path: 'D:\GitHubPro\22222\slow-log-tail\slowlog\slow-log.log'
-  instance: '测试'
+  env: 'prod-安徽'
+  instance: '测试真线-项目采购'
   ignoreuser: ['root']
   longquerytime: 0.4
